@@ -10,6 +10,7 @@ import {
     formatTweet,
     formatDate
 } from "../utils/helpers";
+import { handleToggleTweet } from "../actions/tweets";
 
 class Tweet extends Component {
 
@@ -22,7 +23,13 @@ class Tweet extends Component {
     handleLike = (e) => {
         e.preventDefault()
 
-        //TODO: Like
+        const {dispatch, tweet, authedUser} = this.props
+
+        dispatch(handleToggleTweet({
+            id: tweet.id,
+            hasLiked: tweet.hasLiked,
+            authedUser
+        }))
     }
 
     render() {
