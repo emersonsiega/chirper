@@ -3,6 +3,7 @@ body {
   padding: 0;
   font-family: sans-serif;
   color: #252525;
+  background: #242424;
 }
 
 a {
@@ -37,6 +38,10 @@ a {
   outline: 0;
   font-weight: 700;
   border-width: 2px;
+}
+
+.dashboard {
+  color: #dadada;
 }
 
 .center {
@@ -83,12 +88,14 @@ li {
   border: 1px solid #dad7d7;
   border-radius: 3px;
   cursor: pointer;
+  background: #333;
 }
 
 .tweet-info {
   margin: 10px;
   display: flex;
   flex-direction: column;
+  color: #dadada
 }
 
 /* Hacky but less typing in the video */
@@ -113,16 +120,16 @@ li {
   align-items: center;
 }
 .tweet-icons > span {
-  color: #969696;
+  color: #cccada;
   margin: 0 15px 0 5px;
   font-size: 18px !important;
 }
 .tweet-icon {
   font-size: 27px;
-  color: #697784;
+  color: #cccada;
 }
 .tweet-icon:hover {
-  color: #00b5d6;
+  color: #d63d00;
   cursor: pointer;
 }
 .replying-to {
