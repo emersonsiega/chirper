@@ -23,10 +23,15 @@ a {
   padding: 10px;
   border: 1px solid rgba(0,0,0,.29);
   cursor: pointer;
-  background: #fff;
+  background: #333;
   font-size: 16px;
   width: 250px;
   position: relative;
+  color: #dadada;
+}
+
+.btn:disabled {
+  color: #222;
 }
 
 .btn:hover {
@@ -40,7 +45,7 @@ a {
   border-width: 2px;
 }
 
-.dashboard {
+.title {
   color: #dadada;
 }
 
@@ -129,7 +134,7 @@ li {
   color: #cccada;
 }
 .tweet-icon:hover {
-  color: #d63d00;
+  color: #e0245e;
   cursor: pointer;
 }
 .replying-to {
@@ -160,11 +165,13 @@ li {
   padding: 10px;
   font-size: 15px;
   height: 100px;
+  background: #333;
+  color: #dadada;
 }
 
 .tweet-length {
   text-align: right;
   margin-top: 10px;
   font-size: 20px;
-  color: #C3392A;
+  color: #e0245e;
 }
