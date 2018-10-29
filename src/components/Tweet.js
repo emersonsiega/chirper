@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux"
+import { Link, withRouter } from 'react-router-dom'
 import {
     TiArrowBackOutline,
     TiHeartOutline,
@@ -17,7 +18,7 @@ class Tweet extends Component {
     toParent = (e, id) => {
         e.preventDefault()
 
-        //TODO: Redirect
+        this.props.history.push(`/tweet/${id}`)
     }
 
     handleLike = (e) => {
@@ -40,11 +41,11 @@ class Tweet extends Component {
         }
 
         const {
-            name, text, avatar, timestamp, hasLiked, likes, replies, parent,
+            id, name, text, avatar, timestamp, hasLiked, likes, replies, parent,
         } = tweet
 
         return (
-            <div className='tweet'>
+            <Link className='tweet' to={`/tweet/${id}`}>
                 <img
                     className='avatar'
                     src={avatar}
@@ -72,7 +73,7 @@ class Tweet extends Component {
                         <span>{likes !== 0 && likes}</span>
                     </div>
                 </div>
-            </div>
+            </Link>
         )
     }
 }
@@ -91,4 +92,4 @@ const mapStateToProps = ({users, tweets, authedUser}, {id}) => {
     }
 }
 
-export default connect(mapStateToProps)(Tweet)
+export default withRouter(connect(mapStateToProps)(Tweet))
