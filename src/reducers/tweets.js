@@ -42,7 +42,7 @@ const replyingTo = (state, action) => {
             ...state,
             [tweet.replyingTo] : {
                 ...state[tweet.replyingTo],
-                replies: state[tweet.replyingTo].replies.concat([tweet.replyingTo])
+                replies: state[tweet.replyingTo].replies.concat([tweet.id])
             }
         }
         : {}
