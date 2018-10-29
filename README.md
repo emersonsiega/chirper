@@ -4,7 +4,7 @@ A minimalist Twitter clone. Project created to demonstrate a real world use of R
 
 ## Features
 
-The final app allow a user to post new Tweet, comment, like and reply any tweet.
+The final app allow the user to post new Tweet, comment, like and reply any tweet.
 
 ## Final project
 
