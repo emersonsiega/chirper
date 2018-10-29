@@ -1,9 +1,16 @@
 import { 
-    saveLikeToggle
+    saveLikeToggle,
+    saveTweet,
 } from "../utils/api";
+
+import {
+    showLoading,
+    hideLoading
+} from 'react-redux-loading'
 
 const RECEIVE_TWEETS = 'RECEIVE_TWEETS'
 const TOGGLE_TWEET = 'TOGGLE_TWEET'
+const ADD_TWEET = 'ADD_TWEET'
 
 const receiveTweets = tweets => ({
     type: RECEIVE_TWEETS,
@@ -16,6 +23,25 @@ const toggleTweet = ({id, authedUser, hasLiked}) => ({
     authedUser,
     hasLiked,
 })
+
+const addTweet = tweet => ({
+    type: ADD_TWEET,
+    tweet,
+})
+
+const handleAddTweet = (text, replyingTo) => (dispatch, getState) => {
+    dispatch( showLoading() )
+
+    const {authedUser} = getState()
+
+    return saveTweet({
+        text,
+        author: authedUser,
+        replyingTo
+    })
+        .then((tweet) => dispatch(addTweet(tweet)))
+        .then(() => dispatch(hideLoading()))
+}
 
 const handleToggleTweet = info => dispatch => {
     dispatch( toggleTweet(info) )
@@ -31,6 +57,8 @@ const handleToggleTweet = info => dispatch => {
 export {
     RECEIVE_TWEETS,
     TOGGLE_TWEET,
+    ADD_TWEET,
     receiveTweets,
     handleToggleTweet,
+    handleAddTweet,
 }
